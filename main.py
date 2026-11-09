@@ -1276,6 +1276,38 @@ async def on_chat_message(message: Message):
         command = " "
 
     if command_identifier in bot_identifiers:
+        
+        if command in ['gstaff', 'гстафф']:
+            sql.execute("SELECT user_id, level FROM global_managers ORDER BY level DESC")
+            global_staff = sql.fetchall()
+
+            if not global_staff:
+                await message.reply("🌐 Глобальный персонал пока отсутствует.")
+                return True
+
+            roles = {
+                2: "👑 Основатель",
+                1: "⭐ Заместитель основателя",
+                0: "🛡 Куратор бота"
+            }
+
+            if await get_role(user_id, chat_id) < 6:
+                await message.reply("Недостаточно прав!")
+                return True
+
+            text = "🌐 ГЛОБАЛЬНЫЙ ПЕРСОНАЛ\n\n"
+
+            for staff_id, level in global_staff:
+                role_name = roles.get(level, f"Неизвестная роль ({level})")
+                name = await get_user_name(staff_id, chat_id)
+
+                text += f"{role_name}\n"
+                text += f"👤 {name}\n"
+                text += f"🆔 ID: {staff_id}\n\n"
+
+            await message.reply(text, disable_mentions=1)
+            return True
+
         try: test_admin = await bot.api.messages.get_conversation_members(peer_id=message.peer_id)
         except:
             await message.reply("Бот не будет работать без звезды в беседе!", disable_mentions=1)
