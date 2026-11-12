@@ -1459,75 +1459,75 @@ async def on_chat_message(message: Message):
 "Уровень 9 — Основатель
 Полный контроль над ботом."
 
-/gpanel — главная панель управления.
+"/gpanel — главная панель управления."
 
-/gstaff — список глобальной администрации.
+"/gstaff — список глобальной администрации."
 
-/grole — назначение и снятие глобальных ролей.
+"/grole — назначение и снятие глобальных ролей."
 
-/glogs — просмотр журналов действий.
+"/glogs — просмотр журналов действий."
 
-/gstats — глобальная статистика.
+"/gstats — глобальная статистика."
 
-/gban — глобальная блокировка.
+"/gban — глобальная блокировка."
 
-/gunban — снятие блокировки.
+"/gunban — снятие блокировки."
 
-/gbanlist — список заблокированных.
+"/gbanlist — список заблокированных."
 
-/gbroadcast — глобальная рассылка.
+"/gbroadcast — глобальная рассылка."
 
-/gbackup — резервная копия.
+"/gbackup — резервная копия."
 
-/gtech on/off — технический режим.
+"/gtech on/off — технический режим."
 
-/gcheck, /gchecks, /gcheckdone — проверки.
+"/gcheck, /gchecks, /gcheckdone — проверки."
 
-/complaint, /complaints, /complaintdone — жалобы.
+"/complaint, /complaints, /complaintdone — жалобы."
 
-/gchats, /gchat — управление чатами.
+"/gchats, /gchat — управление чатами."
 
-/cpanel — панель чата.
+"/cpanel — панель чата."
 
-🛡 Уровень 8 — Заместитель основателя
-/gpanel
-/gstaff
-/glogs
-/gstats
-/gban
-/gunban
-/gbanlist
-/gbroadcast
-/gcheck
-/gchecks
-/gcheckdone
-/complaints
-/complaintdone
-/gchats
-/gchat
-/cpanel
+" Уровень 8 — Заместитель основателя"
+"/gpanel"
+"/gstaff"
+"/glogs"
+"/gstats"
+"/gban"
+"/gunban"
+"/gbanlist"
+"/gbroadcast"
+"/gcheck"
+"/gchecks"
+"/gcheckdone"
+"/complaints"
+"/complaintdone"
+"/gchats"
+"/gchat"
+"/cpanel"
 
-⚜️ Уровень 7 — Куратор
-/gpanel
-/gstaff
-/gstats
-/gcheck
-/gchecks
-/gcheckdone
-/complaint
-/complaints
-/complaintdone
-/gchats
-/gchat
+" Уровень 7 — Куратор"
+"/gpanel"
+"/gstaff"
+"/gstats"
+"/gcheck"
+"/gchecks"
+"/gcheckdone"
+"/complaint"
+"/complaints"
+"/complaintdone"
+"/gchats"
+"/gchat"
 
-🔰 Уровень 6 — Менеджер
-/gpanel
-/gstats
-/gcheck
-/gchecks
-/complaint
-/complaints
-/gchats
+"Уровень 6 — Менеджер"
+"/gpanel"
+"/gstats"
+"/gcheck"
+"/gchecks"
+"/complaint"
+"/complaints"
+"/gchats"
             )
             return True
 
