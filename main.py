@@ -1444,30 +1444,90 @@ async def on_chat_message(message: Message):
         # Глобальные команды доступны независимо от активации бота в беседе.
         global_level = await get_global_role(user_id)
         if await is_global_banned(user_id):
-            await message.reply("⛔ Ваш доступ к Black Manager Lite ограничен глобальной блокировкой.")
+            await message.reply("⛔ Ваш доступ к Black Manager ограничен глобальной блокировкой.")
             return True
         if await is_technical_mode() and global_level < 9 and command not in ("id", "ид"):
             await message.reply("🛠 Бот находится в техническом режиме. Попробуйте позже.")
             return True
 
-        if command in ["gpanel", "globalpanel", "гпанель", "панельг"]:
+        if command in ["gpanel", "ghelp", "гпанель", "гхелп"]:
             if global_level < 8:
                 await message.reply("Панель доступна Заместителю и Основателю.")
                 return True
             await message.reply(
-                "🌐 ПАНЕЛЬ ГЛОБАЛЬНОГО УПРАВЛЕНИЯ\\n\\n"
-                "/gstaff — глобальный персонал\\n"
-                "/grole @id 8|7|6|0 — управление ролями\\n"
-                "/glogs — журнал действий\\n"
-                "/gstats — статистика проекта\\n"
-                "/gban @id причина — глобальная блокировка\\n"
-                "/gunban @id — снять глобальную блокировку\\n"
-                "/gbanlist — список блокировок\\n"
-                "/gbroadcast текст — рассылка по активным беседам\\n"
-                "/gbackup — резервная копия базы\\n"
-                "/gchecks — проверки персонала\\n"
-                "/complaints — обращения пользователей\\n"
-                "/gtech on|off — технический режим (только Основатель)"
+
+👑 Уровень 9 — Основатель
+Полный контроль над ботом.
+
+/gpanel — главная панель управления.
+
+/gstaff — список глобальной администрации.
+
+/grole — назначение и снятие глобальных ролей.
+
+/glogs — просмотр журналов действий.
+
+/gstats — глобальная статистика.
+
+/gban — глобальная блокировка.
+
+/gunban — снятие блокировки.
+
+/gbanlist — список заблокированных.
+
+/gbroadcast — глобальная рассылка.
+
+/gbackup — резервная копия.
+
+/gtech on/off — технический режим.
+
+/gcheck, /gchecks, /gcheckdone — проверки.
+
+/complaint, /complaints, /complaintdone — жалобы.
+
+/gchats, /gchat — управление чатами.
+
+/cpanel — панель чата.
+
+🛡 Уровень 8 — Заместитель основателя
+/gpanel
+/gstaff
+/glogs
+/gstats
+/gban
+/gunban
+/gbanlist
+/gbroadcast
+/gcheck
+/gchecks
+/gcheckdone
+/complaints
+/complaintdone
+/gchats
+/gchat
+/cpanel
+
+⚜️ Уровень 7 — Куратор
+/gpanel
+/gstaff
+/gstats
+/gcheck
+/gchecks
+/gcheckdone
+/complaint
+/complaints
+/complaintdone
+/gchats
+/gchat
+
+🔰 Уровень 6 — Менеджер
+/gpanel
+/gstats
+/gcheck
+/gchecks
+/complaint
+/complaints
+/gchats
             )
             return True
 
@@ -1478,12 +1538,19 @@ async def on_chat_message(message: Message):
             await message.reply(
                 "🛡 ПАНЕЛЬ КУРАТОРА\\n\\n"
                 "/gstaff — персонал проекта\\n"
+                
                 "/gstats — статистика проекта\\n"
+                
                 "/gcheck @id заметка — открыть проверку\\n"
+                
                 "/gchecks — список открытых проверок\\n"
+                
                 "/gcheckdone ID — закрыть проверку\\n"
+                
                 "/complaints — обращения пользователей\\n"
+                
                 "/complaintdone ID ответ — закрыть обращение\\n"
+                
                 "/complaint текст — отправить обращение"
             )
             return True
