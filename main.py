@@ -1456,7 +1456,7 @@ async def on_chat_message(message: Message):
                 return True
             await message.reply(
 
-"👑 Уровень 9 — Основатель
+"Уровень 9 — Основатель
 Полный контроль над ботом."
 
 /gpanel — главная панель управления.
